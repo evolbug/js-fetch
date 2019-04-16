@@ -13,6 +13,7 @@ function Fetch(url, params = {}) {
             if (req.status == 200) {
                 if (params.cache !== undefined) {
                     params.cache[params.alias] = {
+                        url: url,
                         etag: req.getResponseHeader("etag"),
                         date: req.getResponseHeader("last-modified"),
                         data: req.responseText,
